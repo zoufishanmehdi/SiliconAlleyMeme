@@ -107,20 +107,28 @@
     [self.enterStoryTextView resignFirstResponder];
 }
 
-- (IBAction)addFilter:(UIButton *)sender {
-    AddFilterVC *addFilter = (AddFilterVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"AddFilterID"];
-    
-    
-    [self.navigationController pushViewController:addFilter animated:YES];
-
-}
 
 
 - (IBAction)shareStoryButtonTapped:(UIButton *)sender {
     
     [self.delegate memeGenerator:self.pictureTakenImageView.image theLabel:self.enterStoryTextView.text];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    NSLog(@"working");
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//    NSLog(@"working");
+    
+    
+    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"addFilterNav"];
+    
+    AddFilterVC *addFilter = (AddFilterVC *) navigationController.topViewController;
+    
+   // hInfo.habitsArray = self.habitsArray;
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
+    
+    
+//    AddFilterVC *addFilter = (AddFilterVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"AddFilterID"];
+//    
+//    
+//    [self.navigationController pushViewController:addFilter animated:YES];
 }
 
 /*
